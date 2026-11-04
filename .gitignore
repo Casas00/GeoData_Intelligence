@@ -1,0 +1,25 @@
+# Entorno virtual
+.venv/
+
+# Variables de entorno y secretos
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Entornos y editores
+.vscode/
+.idea/
+
+# Archivos temporales
+*.log
+
+# Archivos de entrada: no subir datos originales al repositorio
+data/incoming/*
+!data/incoming/.gitkeep
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
