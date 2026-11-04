@@ -3,11 +3,14 @@
 
 # Variables de entorno y secretos
 .env
+.env.*
+!.env.example
 
 # Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
+*.pyc
 
 # Entornos y editores
 .vscode/
@@ -17,6 +20,7 @@ __pycache__/
 *.log
 
 # Archivos de entrada: no subir datos originales al repositorio
+incoming/*
 data/incoming/*
 !data/incoming/.gitkeep
 
