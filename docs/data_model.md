@@ -21,6 +21,7 @@ Stores reusable logical schema definitions and their versions.
 | Field | Type | Constraints | Description |
 |---|---|---|---|
 | schema_id | Integer | PK | Unique identifier |
+| schema_code | VARCHAR(30) | UNIQUE, NOT NULL | Complete schema cod, e.g. ROADS001 |
 | name | VARCHAR(150) | NOT NULL | Logical schema name |
 | description | TEXT | NULL | Description |
 | version | Integer | NOT NULL | Schema version |
