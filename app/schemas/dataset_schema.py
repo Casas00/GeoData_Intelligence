@@ -1,19 +1,20 @@
 from typing import Any 
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
+from app.schemas.dataset_definition import DatsetDefinition
 
 class DatasetSchemaCreate(BaseModel):
     name: str
     description: str | None = None 
-    definition: dict[str, Any]
+    definition: DatsetDefinition
 
 class DatasetSchemaVersionCreate(BaseModel):
     description: str | None = None 
-    definition: dict[str, Any]
+    definition: DatsetDefinition
 
 class DatasetSchemaUpdate(BaseModel):
     description: str | None = None 
-    definition: dict[str, Any] | None = None 
+    definition: DatsetDefinition
 
 class DatasetSchemaResponse(BaseModel):
     schema_id: int

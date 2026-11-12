@@ -11,6 +11,8 @@ from sqlalchemy.sql import func
 
 from app.database.base import Base
 
+from sqlalchemy.orm import relationship
+
 
 class DatasetSchema(Base):
     __tablename__ = "dataset_schemas"
@@ -43,4 +45,9 @@ class DatasetSchema(Base):
         DateTime(timezone=True),
         nullable=False,
         server_default=func.now()
+    )
+
+    datasets = relationship(
+        "Dataset",
+        back_populates='dataset_schema'
     )

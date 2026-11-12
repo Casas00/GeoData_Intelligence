@@ -99,3 +99,13 @@ class Dataset(Base):
         "DatasetSchema",
         back_populates="datasets"
     )
+
+    sources = relationship(
+        "DatasetSource",
+        back_populates="dataset"
+    )
+
+    ingestion_jobs = relationship(
+        "IngestionJob",
+        back_populates='dataset'
+    )

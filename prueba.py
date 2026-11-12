@@ -1,41 +1,49 @@
-from sqlalchemy import text
+from app.database.connection import SessionLocal
+from app.models.dataset_schema import DatasetSchema
 
-from app.database.connection import engine, SessionLocal
-
-
-# Test 1: Direct connection
-with engine.connect() as connection:
-
-    result = connection.execute(
-        text("SELECT version();")
-    )
-
-    print("PostgreSQL:")
-    print(result.scalar())
+from app.services.dataset_schema_service import (
+    get_available_schema_code
+)
 
 
-# Test 2: PostGIS
-with engine.connect() as connection:
-
-    result = connection.execute(
-        text("SELECT PostGIS_Full_Version();")
-    )
-
-    print("\nPostGIS:")
-    print(result.scalar())
-
-
-# Test 3: Session
 db = SessionLocal()
 
 try:
+    # Insert temporary records to simulate collisions
 
-    result = db.execute(
-        text("SELECT current_database();")
+    test_records = [
+        "HYDRO001",
+        "HYDHY001",
+        "HYD01001"
+    ]
+
+    for index, code in enumerate(test_records):
+        db.add(
+            DatasetSchema(
+                schema_code=code,
+                name=f"Test Schema {index}",
+                description="Temporary test record",
+                version=1,
+                definition={
+                    "fields": [],
+                    "geometry": None
+                }
+            )
+        )
+
+    # Make temporary records visible to queries
+    db.flush()
+
+    # Search for an available code
+    result = get_available_schema_code(
+        db=db,
+        name="Hydrography",
+        version=1
     )
 
-    print("\nDatabase:")
-    print(result.scalar())
+    print("Available schema code:", result)
 
 finally:
+    # Undo all temporary database changes
+    db.rollback()
     db.close()
