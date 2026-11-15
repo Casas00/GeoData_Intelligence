@@ -66,6 +66,15 @@ def get_schemas(db:Session) -> list[DatasetSchema]:
         DatasetSchema.version
     ).all()
 
+
+def get_schema_versions(db:Session, schema_name:str):
+    return (
+        db.query(DatasetSchema)
+        .filter(DatasetSchema.name == schema_name)
+        .order_by(DatasetSchema.version.asc())
+        .all()
+    )
+
 def create_schema(db:Session,schema_data:DatasetSchemaCreate) -> DatasetSchema:
     """Create a new logical dataset schema."""
 
@@ -194,3 +203,4 @@ def update_schema(db: Session,schema_data: DatasetSchemaUpdate,schema_id: int | 
     except Exception:
         db.rollback()
         raise
+

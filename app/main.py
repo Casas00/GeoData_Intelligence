@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.routers import dataset_schema
+
 '''
 Crtl + Shft + ñ
 python -m uvicorn app.main:app --reload
@@ -10,6 +12,8 @@ app = FastAPI(
     description='AI-Assisted Geospatial Data Harmonisation Platform',
     version='0.1.0',
 )
+
+app.include_router(dataset_schema.router)
 
 @app.get('/')
 def root():
