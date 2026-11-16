@@ -15,7 +15,7 @@ class DatasetCreate(BaseModel):
     geometry_type: str | None = None
     crs: str | None = None
 
-    schema_id: int | None = None
+    schema_id: int
 
 
 class DatasetUpdate(BaseModel):
@@ -37,7 +37,7 @@ class DatasetResponse(BaseModel):
     geometry_type: str | None
     crs: str | None
 
-    schema_id: int | None
+    schema_id: int
 
     status: str
 

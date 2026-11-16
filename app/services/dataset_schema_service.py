@@ -6,7 +6,11 @@ from app.utils.schema_code_generator import (
     generate_numeric_prefix,
     generate_version_code
 )
-from app.schemas.dataset_schema import DatasetSchemaCreate, DatasetSchemaUpdate
+from app.schemas.dataset_schema import (
+    DatasetSchemaCreate, 
+    DatasetSchemaUpdate,
+    DatasetSchemaVersionCreate
+)
 
 def schema_code_exists(db: Session, candidate: str) -> bool:
     return db.query(DatasetSchema).filter(
@@ -14,7 +18,7 @@ def schema_code_exists(db: Session, candidate: str) -> bool:
     ).first() is not None
 
 def get_available_schema_code(db:Session,name:str,version:int) -> str:
-    """Fin an avaibale scheam code in the database."""
+    """Finf an avaibale schema code in the database."""
 
     version_code = generate_version_code(version)
 
@@ -67,7 +71,7 @@ def get_schemas(db:Session) -> list[DatasetSchema]:
     ).all()
 
 
-def get_schema_versions(db:Session, schema_name:str):
+def get_schema_versions(db:Session, schema_name:str) -> list[DatasetSchema]:
     return (
         db.query(DatasetSchema)
         .filter(DatasetSchema.name == schema_name)
@@ -204,3 +208,50 @@ def update_schema(db: Session,schema_data: DatasetSchemaUpdate,schema_id: int | 
         db.rollback()
         raise
 
+def get_latest_schema_version(db:Session, schema_name:str) -> DatasetSchema | None:
+    """Retrieve the latest version of a logical schema by name."""
+
+    return (
+        db.query(DatasetSchema)
+        .filter(DatasetSchema.name == schema_name)
+        .order_by(DatasetSchema.version.desc())
+        .first()
+    )
+
+def create_schema_version(db:Session,schema_name:str,schema_data:DatasetSchemaVersionCreate) -> DatasetSchema | None:
+    """Create a new version of an existing logical schema."""
+
+    latest_schema = get_latest_schema_version(db,schema_name)
+
+    if latest_schema is None:
+        return None
+
+    name = latest_schema.name
+    version = latest_schema.version + 1 
+
+    schema_code = get_available_schema_code(
+        db,
+        name,
+        version
+    )
+
+    definition = schema_data.definition.model_dump(mode='json')
+
+    new_schema = DatasetSchema(
+        schema_code=schema_code,
+        name=name,
+        description=schema_data.description,
+        version=version,
+        definition=definition
+    )
+
+    try:
+        db.add(new_schema)
+        db.commit()
+        db.refresh(new_schema)
+
+        return new_schema
+
+    except Exception:
+        db.rollback()
+        raise

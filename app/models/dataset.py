@@ -67,10 +67,10 @@ class Dataset(Base):
     )
 
     # Logical Schema Reference
-    schema_id: Mapped[int | None] = mapped_column(
+    schema_id: Mapped[int] = mapped_column(
         Integer,
         ForeignKey("metadata.dataset_schemas.schema_id"),
-        nullable=True
+        nullable=False
     )
 
     # Dataset Status

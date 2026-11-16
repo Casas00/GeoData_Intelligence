@@ -2,11 +2,15 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database.session import get_db
-from app.schemas.dataset_schema import DatasetSchemaResponse
+from app.schemas.dataset_schema import (
+    DatasetSchemaResponse,
+    DatasetSchemaVersionCreate
+)
 from app.services.dataset_schema_service import (
     get_schemas,
     get_schema_by_code,
-    get_schema_versions
+    get_schema_versions,
+    create_schema_version
 )
 
 router = APIRouter(
@@ -44,6 +48,26 @@ def read_schema_by_code(
         raise HTTPException(
             status_code=404,
             detail=f'Schema with code "{schema_code}" not found',
+        )
+
+    return schema
+
+@router.post("/name/{schema_name}/versions",response_model=DatasetSchemaResponse,status_code=201)
+def create_new_schema_version(
+    schema_name:str,
+    schema_data: DatasetSchemaVersionCreate,
+    db:Session = Depends(get_db)
+):
+    schema = create_schema_version(
+        db,
+        schema_name,
+        schema_data
+    )
+
+    if schema is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Schema with name '{schema_name}' not found"
         )
 
     return schema

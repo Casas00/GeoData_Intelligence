@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.routers import dataset_schema
+from app.routers import datasets
 
 '''
 Crtl + Shft + ñ
@@ -14,6 +15,7 @@ app = FastAPI(
 )
 
 app.include_router(dataset_schema.router)
+app.include_router(datasets.router)
 
 @app.get('/')
 def root():
