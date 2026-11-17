@@ -73,13 +73,6 @@ class Dataset(Base):
         nullable=False
     )
 
-    # Dataset Status
-    status: Mapped[str] = mapped_column(
-        String(30),
-        nullable=False,
-        default="draft"
-    )
-
     # Timestamps
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

@@ -39,8 +39,6 @@ class DatasetResponse(BaseModel):
 
     schema_id: int
 
-    status: str
-
     created_at: datetime
     updated_at: datetime
 

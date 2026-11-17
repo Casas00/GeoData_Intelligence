@@ -2,9 +2,10 @@ from sqlalchemy.orm import Session
 
 from app.models.dataset import Dataset
 from app.models.dataset_schema import DatasetSchema
+from app.schemas.dataset import DatasetCreate
 
 def get_datasets(db:Session) -> list[Dataset]:
-    """Retrieve all thematic datasets with their logical shemas"""
+    """Retrieve all thematic datasets"""
 
     return (
         db.query(Dataset)
@@ -49,3 +50,42 @@ def get_datasets_by_schema(
         .filter(DatasetSchema.schema_code == schema_code)
         .all()
     )
+
+def create_dataset(
+    db: Session,
+    dataset_data: DatasetCreate
+) -> Dataset | None:
+    """Create a new thematic dataset metadata record."""
+
+    schema = (
+        db.query(DatasetSchema)
+        .filter(
+            DatasetSchema.schema_id == dataset_data.schema_id
+        )
+        .first()
+    )
+
+    if schema is None:
+        return None
+
+    new_dataset = Dataset(
+        name=dataset_data.name,
+        description=dataset_data.description,
+        schema_name=dataset_data.schema_name,
+        table_name=dataset_data.table_name,
+        data_type=dataset_data.data_type,
+        geometry_type=dataset_data.geometry_type,
+        crs=dataset_data.crs,
+        schema_id=dataset_data.schema_id
+    )
+
+    try:
+        db.add(new_dataset)
+        db.commit()
+        db.refresh(new_dataset)
+
+        return new_dataset
+
+    except Exception:
+        db.rollback()
+        raise
