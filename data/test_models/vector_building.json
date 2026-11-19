@@ -1,0 +1,33 @@
+{
+  "fields": [
+    {
+      "name": "building_id",
+      "type": "integer",
+      "description": "Unique building identifier",
+      "required": true
+    },
+    {
+      "name": "building_name",
+      "type": "string",
+      "description": "Building name",
+      "required": false
+    },
+    {
+      "name": "height",
+      "type": "float",
+      "description": "Building height in meters",
+      "required": false
+    },
+    {
+      "name": "construction_date",
+      "type": "date",
+      "description": "Construction date",
+      "required": false
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "crs": "EPSG:25831",
+    "nullable": false
+  }
+}

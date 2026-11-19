@@ -1,0 +1,41 @@
+{
+  "fields": [
+    {
+      "name": "municipality_code",
+      "type": "string",
+      "description": "Official municipality code",
+      "required": true
+    },
+    {
+      "name": "municipality_name",
+      "type": "string",
+      "description": "Municipality name",
+      "required": true
+    },
+    {
+      "name": "population",
+      "type": "integer",
+      "description": "Recorded population",
+      "required": true
+    },
+    {
+      "name": "reference_year",
+      "type": "integer",
+      "description": "Year to which the population value refers",
+      "required": true
+    },
+    {
+      "name": "population_density",
+      "type": "float",
+      "description": "Population density in inhabitants per square kilometre",
+      "required": false
+    },
+    {
+      "name": "updated_at",
+      "type": "datetime",
+      "description": "Timestamp of the latest source update",
+      "required": false
+    }
+  ],
+  "geometry": null
+}
