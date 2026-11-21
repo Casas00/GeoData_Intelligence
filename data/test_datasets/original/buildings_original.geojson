@@ -1,0 +1,438 @@
+{
+  "type": "FeatureCollection",
+  "name": "buildings_original",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-001",
+        "denominacio": "Edifici Can Serra",
+        "alcada_aprox": "12.5",
+        "data_registre": "2018-04-12"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03388,
+              41.34592
+            ],
+            [
+              2.0341199999999997,
+              41.34592
+            ],
+            [
+              2.0341199999999997,
+              41.34607999999999
+            ],
+            [
+              2.03388,
+              41.34607999999999
+            ],
+            [
+              2.03388,
+              41.34592
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-002",
+        "denominacio": "Bloc del Parc",
+        "alcada_aprox": "18",
+        "data_registre": "2016-09-03"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03588,
+              41.346120000000006
+            ],
+            [
+              2.03612,
+              41.346120000000006
+            ],
+            [
+              2.03612,
+              41.34628
+            ],
+            [
+              2.03588,
+              41.34628
+            ],
+            [
+              2.03588,
+              41.346120000000006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-003",
+        "denominacio": "Residencial Marina",
+        "alcada_aprox": "9,8",
+        "data_registre": "2020-01-22"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03788,
+              41.34572
+            ],
+            [
+              2.0381199999999997,
+              41.34572
+            ],
+            [
+              2.0381199999999997,
+              41.345879999999994
+            ],
+            [
+              2.03788,
+              41.345879999999994
+            ],
+            [
+              2.03788,
+              41.34572
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-004",
+        "denominacio": "Nau industrial Nord",
+        "alcada_aprox": "7.2",
+        "data_registre": "2012-11-17"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03988,
+              41.34602
+            ],
+            [
+              2.04012,
+              41.34602
+            ],
+            [
+              2.04012,
+              41.34618
+            ],
+            [
+              2.03988,
+              41.34618
+            ],
+            [
+              2.03988,
+              41.34602
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-005",
+        "denominacio": "Centre cívic",
+        "alcada_aprox": "14",
+        "data_registre": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.04188,
+              41.34582
+            ],
+            [
+              2.0421199999999997,
+              41.34582
+            ],
+            [
+              2.0421199999999997,
+              41.34598
+            ],
+            [
+              2.04188,
+              41.34598
+            ],
+            [
+              2.04188,
+              41.34582
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-006",
+        "denominacio": "Edifici de la Plaça",
+        "alcada_aprox": "21.3",
+        "data_registre": "2019-06-30"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03288,
+              41.34442
+            ],
+            [
+              2.03312,
+              41.34442
+            ],
+            [
+              2.03312,
+              41.34457999999999
+            ],
+            [
+              2.03288,
+              41.34457999999999
+            ],
+            [
+              2.03288,
+              41.34442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-007",
+        "denominacio": "Habitatges del Riu",
+        "alcada_aprox": "10",
+        "data_registre": "2015-02-14"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.0348800000000002,
+              41.344620000000006
+            ],
+            [
+              2.03512,
+              41.344620000000006
+            ],
+            [
+              2.03512,
+              41.34478
+            ],
+            [
+              2.0348800000000002,
+              41.34478
+            ],
+            [
+              2.0348800000000002,
+              41.344620000000006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-008",
+        "denominacio": "Magatzem Est",
+        "alcada_aprox": "6,4",
+        "data_registre": "2011-08-09"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03688,
+              41.34432
+            ],
+            [
+              2.03712,
+              41.34432
+            ],
+            [
+              2.03712,
+              41.34448
+            ],
+            [
+              2.03688,
+              41.34448
+            ],
+            [
+              2.03688,
+              41.34432
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-009",
+        "denominacio": "Biblioteca municipal",
+        "alcada_aprox": "16.8",
+        "data_registre": "2021-03-18"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.0388800000000002,
+              41.34472
+            ],
+            [
+              2.03912,
+              41.34472
+            ],
+            [
+              2.03912,
+              41.344879999999996
+            ],
+            [
+              2.0388800000000002,
+              41.344879999999996
+            ],
+            [
+              2.0388800000000002,
+              41.34472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-010",
+        "denominacio": "Edifici de serveis",
+        "alcada_aprox": "11",
+        "data_registre": "2017-12-01"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.04088,
+              41.34442
+            ],
+            [
+              2.04112,
+              41.34442
+            ],
+            [
+              2.04112,
+              41.34457999999999
+            ],
+            [
+              2.04088,
+              41.34457999999999
+            ],
+            [
+              2.04088,
+              41.34442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-011",
+        "denominacio": "Torre del Mercat",
+        "alcada_aprox": "24.6",
+        "data_registre": "2022-07-19"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03388,
+              41.343120000000006
+            ],
+            [
+              2.0341199999999997,
+              41.343120000000006
+            ],
+            [
+              2.0341199999999997,
+              41.34328
+            ],
+            [
+              2.03388,
+              41.34328
+            ],
+            [
+              2.03388,
+              41.343120000000006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ref_construccio": "BCN-012",
+        "denominacio": "Pavelló esportiu",
+        "alcada_aprox": "8.5",
+        "data_registre": "2014-05-26"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              2.03588,
+              41.343320000000006
+            ],
+            [
+              2.03612,
+              41.343320000000006
+            ],
+            [
+              2.03612,
+              41.34348
+            ],
+            [
+              2.03588,
+              41.34348
+            ],
+            [
+              2.03588,
+              41.343320000000006
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
