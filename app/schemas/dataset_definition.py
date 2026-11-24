@@ -9,6 +9,7 @@ from pydantic import (
     model_validator
 )
 
+from app.core.constants import DEFAULT_CRS
 
 class FieldDefinition(BaseModel):
     """Defines an attribute within a logical dataset schema."""
@@ -54,15 +55,12 @@ class GeometryDefinition(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     type: Literal[
-        "Point",
         "MultiPoint",
-        "LineString",
         "MultiLineString",
-        "Polygon",
         "MultiPolygon"
     ]
 
-    crs: str = Field(min_length=1, max_length=50)
+    crs: Literal['EPSG:4326'] = DEFAULT_CRS
     nullable: bool = False
 
 
